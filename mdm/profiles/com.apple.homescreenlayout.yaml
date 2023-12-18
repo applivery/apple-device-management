@@ -56,11 +56,35 @@ payloadkeys:
       content: An array of arrays of dictionaries, each conforming to the icon dictionary
         format. This setting is valid only if the type is 'Folder'.
       subkeytype: PagesItem
-      subkeys: &id002
+      subkeys:
       - key: PagesItem
         type: <array>
         subkeytype: IconItem
-        subkeys: *id001
+        subkeys: 
+        - key: IconItem
+          type: <dictionary>
+          subkeys:
+          - key: Type
+            type: <string>
+            presence: required
+            rangelist:
+            - App
+            - WebClip
+            content: The type of the dock item.
+          - key: BundleID
+            type: <string>
+            presence: optional
+            content: The bundle identifier of the app. This setting is required if the type
+              is 'Application'.
+          - key: URL
+            supportedOS:
+              iOS:
+                introduced: '11.3'
+            type: <string>
+            presence: optional
+            content: |-
+              The URL of the existing web clip for this item. This setting is required if 'type' is 'WebClip'. If more than one web clip exists with the same URL, the behavior is undefined.
+              Specifying a web clip in this payload doesn't create the web clip. Use the WebClip payload to create a web clip.
     - key: URL
       supportedOS:
         iOS:
@@ -76,4 +100,8 @@ payloadkeys:
   content: An array of arrays of dictionaries, each of which must conform to the icon
     dictionary format.
   subkeytype: PagesItem
-  subkeys: *id002
+  subkeys: 
+  - key: PagesItem
+    type: <array>
+    subkeytype: IconItem
+    subkeys: *id001
