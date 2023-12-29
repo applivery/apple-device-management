@@ -36,7 +36,7 @@ payloadkeys:
       type: <string>
       presence: required
       rangelist:
-      - App
+      - Application
       - Folder
       - WebClip
       content: The type of the dock item.
@@ -68,7 +68,7 @@ payloadkeys:
             type: <string>
             presence: required
             rangelist:
-            - App
+            - Application
             - WebClip
             content: The type of the dock item.
           - key: BundleID
