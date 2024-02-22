@@ -1,4 +1,5 @@
-title: FDE FileVault Recovery Key Escrow
+title: FDE Recovery Key Escrow
+customTitle: FileVault Recovery Key Escrow
 description: ''
 payload:
   payloadtype: com.apple.security.FDERecoveryKeyEscrow

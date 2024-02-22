@@ -1,4 +1,5 @@
-title: FDE FileVault Options
+title: FileVault Options
+customTitle: FileVault Options
 description: ''
 payload:
   payloadtype: com.apple.MCX
