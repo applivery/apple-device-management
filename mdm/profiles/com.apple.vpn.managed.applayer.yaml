@@ -24,8 +24,8 @@ payload:
       allowmanualinstall: true
       userenrollment:
         mode: allowed
-    # tvOS:
-    #   introduced: n/a
+    tvOS:
+      introduced: n/a
     visionOS:
       introduced: '1.1'
       multiple: true
