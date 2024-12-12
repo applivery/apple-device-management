@@ -75,7 +75,7 @@ payloadkeys:
     type: <dictionary>
     presence: optional
     content: If present, configures the Math Notes mode of the calculator. If not
-      present, math notes mode is enabled.
+      present, Math Notes mode is enabled.
     subkeys:
     - key: Enabled
       type: <boolean>
@@ -110,7 +110,7 @@ payloadkeys:
     type: <boolean>
     presence: required
     combinetype: boolean-and
-    content: Controls whether keyboard suggestions include math solutions
+    content: Controls whether keyboard suggestions include math solutions.
   - key: MathNotes
     type: <boolean>
     presence: required

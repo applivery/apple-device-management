@@ -30,5 +30,5 @@ payloadkeys:
   title: The device's enrolled beta program.
   type: <string>
   presence: required
-  content: The device's enrolled beta program name, or an empty string if there is
+  content: The device's enrolled beta program name, or an empty string if there's
     no enrolled beta program.

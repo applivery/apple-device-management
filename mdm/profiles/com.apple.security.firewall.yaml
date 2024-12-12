@@ -66,8 +66,8 @@ payloadkeys:
       removed: '15.0'
   type: <boolean>
   presence: optional
-  content: If 'true', the system enables logging. Available in macOS 12 and later.
-    Removed in macOS 15.
+  content: If 'true', the system enables logging. Available in macOS 12 through macOS
+    14.6.
 - key: LoggingOption
   supportedOS:
     macOS:
@@ -80,8 +80,7 @@ payloadkeys:
   - throttled
   - brief
   - detail
-  content: The type of logging. Available in macOS 12 and later. Removed in macOS
-    15.
+  content: The type of logging. Available in macOS 12 and through macOS 14.6.
 - key: AllowSigned
   supportedOS:
     macOS:

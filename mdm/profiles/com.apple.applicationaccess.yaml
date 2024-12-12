@@ -19,6 +19,7 @@ payload:
       multiple: true
       devicechannel: true
       userchannel: true
+      supervised: false
       requiresdep: false
       userapprovedmdm: false
       allowmanualinstall: true
@@ -362,9 +363,9 @@ payloadkeys:
   type: <boolean>
   presence: optional
   default: true
-  content: If false, disables the ability for the user to hide apps. It does not affect
-    the user's ability to leave it in the App Library, while removing it from the
-    home screen.
+  content: If 'false', disables the ability for the user to hide apps. It doesn't
+    affect the user's ability to leave it in the App Library, while removing it from
+    the home screen. Available in iOS 18 and later.
 - key: allowAppsToBeLocked
   title: Allow Locking Apps
   supportedOS:
@@ -384,8 +385,9 @@ payloadkeys:
   type: <boolean>
   presence: optional
   default: true
-  content: If false, disables the ability for the user to lock apps. Because hiding
-    apps also requires locking them, disallowing locking also disallows hiding.
+  content: If 'false', disables the ability for the user to lock apps. Because hiding
+    apps also requires locking them, disallowing locking also disallows hiding. Available
+    in iOS 18 and later.
 - key: allowARDRemoteManagementModification
   title: Allow modifying Remote Management Sharing setting
   supportedOS:
@@ -491,6 +493,8 @@ payloadkeys:
     iOS:
       introduced: '17.4'
       supervised: true
+      sharedipad:
+        mode: forbidden
       userenrollment:
         mode: forbidden
     macOS:
@@ -620,7 +624,9 @@ payloadkeys:
       userenrollment:
         mode: forbidden
     macOS:
-      introduced: n/a
+      introduced: '15.0'
+      userenrollment:
+        mode: forbidden
     tvOS:
       introduced: n/a
     visionOS:
@@ -631,7 +637,7 @@ payloadkeys:
   presence: optional
   default: true
   content: If 'false', the system removes the Book Store tab from the Books app. Requires
-    a supervised device. Available in iOS 6 and later.
+    a supervised device. Available in iOS 6 and later and macOS 15 and later.
 - key: allowBookstoreErotica
   title: Allow Bookstore Erotica
   supportedOS:
@@ -640,7 +646,9 @@ payloadkeys:
       userenrollment:
         mode: forbidden
     macOS:
-      introduced: n/a
+      introduced: '15.0'
+      userenrollment:
+        mode: forbidden
     tvOS:
       introduced: '11.3'
       deprecated: '17.0'
@@ -652,8 +660,9 @@ payloadkeys:
   presence: optional
   default: true
   content: If 'false', the system prevents the user from downloading Apple Books media
-    that's tagged as erotica. Available in iOS 6 and later, and tvOS 11.3 and later.
-    Support for this restriction on unsupervised devices is deprecated.
+    that's tagged as erotica. Available in iOS 4.0 and later, macOS 15 and later,
+    and tvOS 17 and later. Support for this restriction on unsupervised devices is
+    deprecated.
 - key: allowCallRecording
   title: Allow Call Recording
   supportedOS:
@@ -675,7 +684,7 @@ payloadkeys:
   type: <boolean>
   presence: optional
   default: true
-  content: If false, call recording is disabled.
+  content: If 'false', disables call recording. Available in iOS 18 and later.
 - key: allowCamera
   title: Allow Camera Use
   supportedOS:
@@ -996,6 +1005,8 @@ payloadkeys:
     visionOS:
       introduced: '2.0'
       supervised: true
+      userenrollment:
+        mode: forbidden
     watchOS:
       introduced: n/a
   type: <boolean>
@@ -1065,6 +1076,31 @@ payloadkeys:
   default: true
   content: If 'false', the system disables QuickPath keyboard. Requires a supervised
     device. Available in iOS 13 and later.
+- key: allowDefaultBrowserModification
+  title: Allow default browser modification
+  supportedOS:
+    iOS:
+      introduced: '18.2'
+      supervised: true
+      userenrollment:
+        mode: forbidden
+    macOS:
+      introduced: n/a
+    tvOS:
+      introduced: n/a
+    visionOS:
+      introduced: '2.2'
+      supervised: true
+      userenrollment:
+        mode: forbidden
+    watchOS:
+      introduced: n/a
+  type: <boolean>
+  presence: optional
+  default: true
+  content: If 'false', disables default browser preference modification. The MDM Settings
+    command to set the default browser preference will still work when this is applied.
+    Available in iOS 18.2 and later, and visionOS 2.2 and later.
 - key: allowDefinitionLookup
   title: Allow Define
   supportedOS:
@@ -1366,7 +1402,9 @@ payloadkeys:
       userenrollment:
         mode: forbidden
     macOS:
-      introduced: n/a
+      introduced: '15.0'
+      userenrollment:
+        mode: forbidden
     tvOS:
       introduced: '11.3'
       supervised: true
@@ -1377,11 +1415,64 @@ payloadkeys:
   type: <boolean>
   presence: optional
   default: true
-  content: If 'false', the system hides explicit music or video content purchased
-    from the iTunes Store. The system marks explicit content as such by content providers,
-    such as record labels, when sold through the iTunes Store. Available in iOS 4
-    and later, and tvOS 11.3 and later. Requires a supervised device in iOS 13 and
-    later. Support for this restriction on unsupervised devices is deprecated.
+  content: |-
+    If 'false', the system hides explicit music or video content purchased from the iTunes Store. The system marks explicit content as such by content providers, such as record labels, when sold through the iTunes Store. Explicit content in the News and Podcast apps is also hidden.
+    Available in iOS 4.0 and later, macOS 15 and later, and tvOS 11.3 and later. Requires a supervised device in iOS 13 and later. Support for this restriction on unsupervised devices is deprecated.
+- key: allowExternalIntelligenceIntegrations
+  title: Allow external intelligence integrations
+  supportedOS:
+    iOS:
+      introduced: '18.2'
+      supervised: false
+      sharedipad:
+        mode: forbidden
+      userenrollment:
+        mode: allowed
+    macOS:
+      introduced: '15.2'
+      userenrollment:
+        mode: forbidden
+    tvOS:
+      introduced: n/a
+    visionOS:
+      introduced: n/a
+    watchOS:
+      introduced: n/a
+  type: <boolean>
+  presence: optional
+  default: true
+  content: If 'false', disables the use of external, cloud-based intelligence services
+    with Siri. On iOS, this restriction is temporarily allowed on unsupervised and
+    user enrollments. In a future release, this restriction will require supervision,
+    and will be ignored on non-supervised devices. Available in iOS 18.2 and later,
+    and macOS 15.2 and later.
+- key: allowExternalIntelligenceIntegrationsSignIn
+  title: Allow external intelligence integrations sign-in
+  supportedOS:
+    iOS:
+      introduced: '18.2'
+      supervised: true
+      sharedipad:
+        mode: forbidden
+      userenrollment:
+        mode: forbidden
+    macOS:
+      introduced: '15.2'
+      userenrollment:
+        mode: forbidden
+    tvOS:
+      introduced: n/a
+    visionOS:
+      introduced: n/a
+    watchOS:
+      introduced: n/a
+  type: <boolean>
+  presence: optional
+  default: true
+  content: If 'false', forces external intelligence providers into anonymous mode.
+    If a user is already signed in to an external intelligence provider, applying
+    this restriction will cause them to be signed out when the next request is attempted.
+    Available in iOS 18.2 and later, and macOS 15.2 and later.
 - key: allowFileSharingModification
   title: Allow modifying File Sharing setting
   supportedOS:
@@ -1998,6 +2089,8 @@ payloadkeys:
     iOS:
       introduced: '18.1'
       supervised: true
+      sharedipad:
+        mode: forbidden
       userenrollment:
         mode: forbidden
     macOS:
@@ -2013,8 +2106,9 @@ payloadkeys:
   type: <boolean>
   presence: optional
   default: true
-  content: If false, disables the ability to create summaries of email messages manually.
-    This does not affect automatic summary generation.
+  content: If 'false', disables the ability to create summaries of email messages
+    manually. This doesn't affect automatic summary generation. Available in iOS 18.1
+    and later.
 - key: allowManagedAppsCloudSync
   title: Allow iCloud Sync for Managed Apps
   supportedOS:
@@ -2098,7 +2192,8 @@ payloadkeys:
   type: <boolean>
   presence: optional
   default: true
-  content: If false, prevents modification of Media Sharing settings.
+  content: If 'false', prevents modification of Media Sharing settings. Available
+    in macOS 15.1 and later.
 - key: allowMultiplayerGaming
   title: Allow Multiplayer Gaming
   supportedOS:
@@ -2649,7 +2744,8 @@ payloadkeys:
   type: <boolean>
   presence: optional
   default: true
-  content: If false, prevents the use of RCS messaging.
+  content: If 'false', prevents the use of RCS messaging. Available in iOS 18.1 and
+    later.
 - key: allowRemoteAppleEventsModification
   title: Allow modifying Remote Apple Events Sharing setting
   supportedOS:
@@ -2732,6 +2828,28 @@ payloadkeys:
     removes its icon from the Home screen. This setting also prevents users from opening
     web clips. As of iOS 13, requires a supervised device. Available in iOS 4 and
     later.
+- key: allowSatelliteConnection
+  title: Allow use of satellite connectivity
+  supportedOS:
+    iOS:
+      introduced: '18.2'
+      supervised: true
+      sharedipad:
+        mode: forbidden
+      userenrollment:
+        mode: forbidden
+    macOS:
+      introduced: n/a
+    tvOS:
+      introduced: n/a
+    visionOS:
+      introduced: n/a
+    watchOS:
+      introduced: n/a
+  type: <boolean>
+  presence: optional
+  default: true
+  content: If false, the connection to and use of satellite services is prohibited.
 - key: allowScreenShot
   title: Allow Screenshots and Screen Recording
   supportedOS:
@@ -3023,6 +3141,8 @@ payloadkeys:
       introduced: n/a
     visionOS:
       introduced: '1.1'
+      userenrollment:
+        mode: forbidden
     watchOS:
       introduced: n/a
   type: <boolean>
@@ -3559,8 +3679,8 @@ payloadkeys:
   type: <boolean>
   presence: optional
   default: false
-  content: If set to true, then the presentation of a screen capture alert will be
-    bypassed.
+  content: If 'true', then the system bypasses the presentation of a screen capture
+    alert. Available in macOS 15.1 and later.
 - key: forceClassroomAutomaticallyJoinClasses
   supportedOS:
     iOS:
@@ -3571,6 +3691,7 @@ payloadkeys:
     macOS:
       introduced: 10.14.4
       supervised: true
+      allowmanualinstall: false
       userenrollment:
         mode: forbidden
     tvOS:
@@ -3595,6 +3716,7 @@ payloadkeys:
     macOS:
       introduced: 10.14.4
       supervised: true
+      allowmanualinstall: false
       userenrollment:
         mode: forbidden
     tvOS:
@@ -3619,6 +3741,7 @@ payloadkeys:
     macOS:
       introduced: 10.14.4
       supervised: true
+      allowmanualinstall: false
       userenrollment:
         mode: forbidden
     tvOS:
@@ -3643,6 +3766,7 @@ payloadkeys:
     macOS:
       introduced: 10.14.4
       supervised: true
+      allowmanualinstall: false
       userenrollment:
         mode: forbidden
     tvOS:
@@ -3833,7 +3957,7 @@ payloadkeys:
   presence: optional
   default: false
   content: |-
-    If 'true', the system preserves eSIM when it erases the device due to too many failed password attempts or the Erase All Content and Settings option in Settings > General > Reset. Available in iOS 17.2 and later.
+    If 'true', the system preserves eSIM when it erases the device due to too many failed password attempts or the Erase All Content and Settings option in Settings > General > Reset. Requires a supervised device. Available in iOS 17.2 and later.
     The system doesn't preserve eSIM if Find My initiates erasing the device.
 - key: forceWatchWristDetection
   title: Force Apple Watch Wrist Detection
@@ -3926,7 +4050,9 @@ payloadkeys:
       userenrollment:
         mode: forbidden
     macOS:
-      introduced: n/a
+      introduced: '15.0'
+      userenrollment:
+        mode: forbidden
     tvOS:
       introduced: '11.3'
     visionOS:
@@ -3940,7 +4066,7 @@ payloadkeys:
     max: 1000
   default: 1000
   content: |-
-    The maximum level of app content allowed on the device. Preinstalled (first party) apps ignore this restriction. Available in iOS 4 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.
+    The maximum level of app content allowed on the device. Preinstalled (first party) apps ignore this restriction. Available in iOS 4.0 and later, macOS 15 and later, and tvOS 11.3 and later.  Support for this restriction on unsupervised devices is deprecated.
     Possible values, with the US description of the rating level:
 
     * '1000': All
@@ -3956,7 +4082,9 @@ payloadkeys:
       userenrollment:
         mode: forbidden
     macOS:
-      introduced: n/a
+      introduced: '15.0'
+      userenrollment:
+        mode: forbidden
     tvOS:
       introduced: '11.3'
     visionOS:
@@ -3970,7 +4098,7 @@ payloadkeys:
     max: 1000
   default: 1000
   content: |-
-    The maximum level of movie content allowed on the device. Available in iOS 4 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.
+    The maximum level of movie content allowed on the device. Available in iOS 4.0 and later, macOS 15 and later, and tvOS 11.3 and later.  Support for this restriction on unsupervised devices is deprecated.
     Possible values, with the US description of the rating level:
 
     * '1000': All
@@ -4000,7 +4128,8 @@ payloadkeys:
   - nz
   - gb
   content: The two-letter key that profile tools use to display the proper ratings
-    for the given region. The client doesn't recognize or report this data.
+    for the given region. The client doesn't recognize or report this data. Available
+    in iOS 4.0 and later, macOS 10.7 and later, and tvOS 9 and later.
 - key: ratingTVShows
   title: TV Shows Ranking Number
   supportedOS:
@@ -4008,7 +4137,9 @@ payloadkeys:
       userenrollment:
         mode: forbidden
     macOS:
-      introduced: n/a
+      introduced: '15.0'
+      userenrollment:
+        mode: forbidden
     tvOS:
       introduced: '11.3'
     visionOS:
@@ -4022,7 +4153,7 @@ payloadkeys:
     max: 1000
   default: 1000
   content: |-
-    The maximum level of TV content allowed on the device. Available in iOS 4 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.
+    The maximum level of TV content allowed on the device. Available in iOS 4.0 and later, macOS 15 and later, and tvOS 11.3 and later. Support for this restriction on unsupervised devices is deprecated.
     Possible values, with the US description of the rating level:
 
     * '1000': All
