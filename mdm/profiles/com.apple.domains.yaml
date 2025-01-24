@@ -19,6 +19,7 @@ payload:
       multiple: false
       devicechannel: true
       userchannel: true
+      supervised: false
       requiresdep: false
       userapprovedmdm: false
       allowmanualinstall: true
@@ -103,4 +104,25 @@ payloadkeys:
     Available in iOS 16.2 and later and macOS 13.1 and later.
   subkeys:
   - key: CrossSiteTrackingPreventionRelaxedDomainItem
+    type: <string>
+- key: CrossSiteTrackingPreventionRelaxedApps
+  title: Cross-Site Tracking Prevention Relaxed Apps
+  supportedOS:
+    iOS:
+      introduced: '18.0'
+      supervised: true
+      allowmanualinstall: false
+      userenrollment:
+        mode: forbidden
+    macOS:
+      introduced: '15.0'
+      allowmanualinstall: false
+  type: <array>
+  presence: optional
+  content: An array of up to 10 strings representing app bundle-ids. Apps matching
+    the bundle-ids listed here will have relaxed enforcement of cross-site tracking
+    prevention for the domains listed in the 'CrossSiteTrackingPreventionRelaxedDomains'
+    key.
+  subkeys:
+  - key: CrossSiteTrackingPreventionRelaxedAppsItem
     type: <string>

@@ -19,6 +19,7 @@ payload:
       accessrights: AllowSettings
       devicechannel: true
       userchannel: true
+      supervised: false
       requiresdep: false
       userenrollment:
         mode: allowed
@@ -604,6 +605,40 @@ payloadkeys:
         presence: optional
         content: A unique identifier for the various services a single organization
           manages.
+  - key: DefaultApplications
+    supportedOS:
+      iOS:
+        introduced: '18.2'
+        sharedipad:
+          mode: forbidden
+        userenrollment:
+          mode: forbidden
+      macOS:
+        introduced: n/a
+      tvOS:
+        introduced: n/a
+      visionOS:
+        introduced: '2.2'
+        userenrollment:
+          mode: forbidden
+      watchOS:
+        introduced: n/a
+    type: <dictionary>
+    presence: optional
+    content: A dictionary that contains default application bundle identifiers. Currently
+      it supports a default web browser app.
+    subkeys:
+    - key: Item
+      type: <string>
+      presence: required
+      rangelist:
+      - DefaultApplications
+      content: Sets information about default applications.
+    - key: WebBrowser
+      type: <string>
+      presence: optional
+      content: The bundle identifier of the app that will be set as the default web
+        browser. This app must be an eligible web browser in the region of the device.
   - key: MDMOptions
     supportedOS:
       iOS:
@@ -761,7 +796,8 @@ payloadkeys:
       type: <integer>
       presence: optional
       content: The quota size, in megabytes (MB), for each user on the shared device,
-        or if the quota size is too small, the minimum quota size.
+        or if the quota size is too small, the minimum quota size. Available to Temporary
+        Sessions Only guest users on iOS 17+.
     - key: ResidentUsers
       type: <integer>
       presence: optional

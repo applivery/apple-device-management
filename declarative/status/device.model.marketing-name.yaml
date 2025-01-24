@@ -55,5 +55,4 @@ payloadkeys:
   type: <string>
   presence: required
   content: The device's marketing name, such as 'iPhone 12'. This value may not always
-    be available. Alternatively, use 'device.model.configuration-code' to look up
-    the marketing name through the web API.
+    be available.

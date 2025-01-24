@@ -27,13 +27,13 @@ payloadkeys:
 - key: EnableAssessment
   type: <boolean>
   presence: optional
-  content: If 'true', enables Gatekeeper.
+  content: If 'true', enables Gatekeeper. If 'false', disables Gatekeeper.
 - key: AllowIdentifiedDevelopers
   type: <boolean>
   presence: optional
   content: |-
-    If 'true', enables Gatekeeper's 'Mac App Store and identified developers' option.
-    If 'false', enables Gatekeeper's 'Mac App Store' option.
+    If 'true', enables Gatekeeper's “Mac App Store and identified developers” option.
+    If 'false', enables Gatekeeper's “Mac App Store” option.
     If the value of 'EnableAssessment' isn't set to 'true', this key has no effect.
 - key: EnableXProtectMalwareUpload
   supportedOS:
