@@ -521,7 +521,6 @@ payloadkeys:
     default: true
     content: |-
       If 'true', disables L3 marking and only uses L2 marking for traffic that goes to the Wi-Fi network.
-
       If 'false', the system behaves as if Wi-Fi doesn't have an association with a Cisco QoS fast lane network.
 - key: SetupModes
   supportedOS:

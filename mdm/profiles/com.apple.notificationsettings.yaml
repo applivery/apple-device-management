@@ -167,6 +167,4 @@ payloadkeys:
         * '0' - Always: Previews will be shown when the device is locked and unlocked
         * '1' - When Unlocked: Previews will only be shown when the device is unlocked
         * '2' - Never: Previews will never be shown
-
-
         Available in iOS 14 and later.

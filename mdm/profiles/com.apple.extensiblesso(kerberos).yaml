@@ -243,7 +243,7 @@ payloadkeys:
     presence: optional
     default: false
     content: If 'true', the system requires passwords to meet Active Directory's definition
-      of 'complex'. Available in macOS 10.15 and later.
+      of “complex”. Available in macOS 10.15 and later.
   - key: pwReqMinAge
     supportedOS:
       iOS:

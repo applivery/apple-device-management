@@ -61,7 +61,13 @@ payloadkeys:
   presence: optional
   content: |-
     An identifier for a vendor-specified configuration dictionary when the value for 'VPNType' is 'VPN'.
-    If 'VPNType' is 'VPN', the system requires this field. If the configuration targets a VPN solution that uses a network extension provider, then this field contains the bundle identifier of the app that contains the provider. Contact the VPN solution vendor for the value of the identifier.
+    If 'VPNType' is 'VPN', the system requires this field. If the configuration targets a VPN solution that uses a VPN plugin, then this field contains the bundle identifier of the plugin. Here are some examples:
+    * Cisco AnyConnect: 'com.cisco.anyconnect.applevpn.plugin'
+    * Juniper SSL: 'net.juniper.sslvpn'
+    * F5 SSL: 'com.f5.F5-Edge-Client.vpnplugin'
+    * SonicWALL Mobile Connect: 'com.sonicwall.SonicWALL-SSLVPN.vpnplugin'
+    * ``Aruba VIA: 'com.arubanetworks.aruba-via.vpnplugin'
+    If the configuration targets a VPN solution that uses a network extension provider, then this field contains the bundle identifier of the app that contains the provider. Contact the VPN solution vendor for the value of the identifier.
     If 'VPNType' is 'IKEv2', then the 'VPNSubType' field is optional and reserved for future use. If it's specified, it needs to contain an empty string.
     Not available in watchOS.
 - key: UserDefinedName
@@ -673,7 +679,7 @@ payloadkeys:
     type: <string>
     presence: optional
     content: |-
-      The name of the group. For hybrid authentication, the string needs to end with 'hybrid'.
+      The name of the group. For hybrid authentication, the string needs to end with “hybrid”.
       Present only for Cisco IPSec if 'AuthenticationMethod' is 'SharedSecret'.
   - key: LocalIdentifierType
     title: Local Identifier Type
@@ -1744,8 +1750,8 @@ payloadkeys:
     type: <array>
     presence: optional
     content: The array of captive networking apps whose traffic is allowed outside
-      the VPN tunnel, to perform captive network handling. Used only when 'AllowAllCaptiveNetworkPlugins
-      'is 'false'.
+      the VPN tunnel, to perform captive network handling. Used only when 'AllowAllCaptiveNetworkPlugins'
+      is 'false'.
     subkeys:
     - key: AllowedCaptiveNetworkPluginElement
       title: An AllowedCaptiveNetworkPlugin Element

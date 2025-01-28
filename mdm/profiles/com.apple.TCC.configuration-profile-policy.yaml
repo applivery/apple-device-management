@@ -55,7 +55,7 @@ payloadkeys:
       - key: CodeRequirement
         type: <string>
         presence: required
-        content: Obtained via the command ''codesign -display -r -''.
+        content: Obtained via the command “'codesign -display -r -'”.
       - key: StaticCode
         type: <boolean>
         presence: optional

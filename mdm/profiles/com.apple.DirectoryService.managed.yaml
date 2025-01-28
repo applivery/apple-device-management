@@ -265,7 +265,7 @@ payloadkeys:
   type: <boolean>
   presence: optional
   default: false
-  content: If 'true', the system enables the 'ADTrustChangePassIntervalDays 'key.
+  content: If 'true', the system enables the 'ADTrustChangePassIntervalDays' key.
 - key: ADTrustChangePassIntervalDays
   title: ADTrustChangePassIntervalDays
   type: <integer>

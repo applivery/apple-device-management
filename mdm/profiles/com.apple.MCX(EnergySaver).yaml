@@ -75,21 +75,21 @@ payloadkeys:
     rangelist:
     - 0
     - 1
-    content: If 'true', enables 'Wake for network access.'
+    content: If 'true', enables “Wake for network access.”
   - key: Wake On Modem Ring
     type: <integer>
     presence: optional
     rangelist:
     - 0
     - 1
-    content: If 'true', enables 'Wake for modem ring.'
+    content: If 'true', enables “Wake for modem ring.”
   - key: Automatic Restart On Power Loss
     type: <integer>
     presence: optional
     rangelist:
     - 0
     - 1
-    content: If 'true', enables 'Start up automatically after a power failure.'
+    content: If 'true', enables “Start up automatically after a power failure.”
 - key: com.apple.EnergySaver.portable.ACPower
   type: <dictionary>
   presence: optional

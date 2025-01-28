@@ -560,8 +560,8 @@ responsekeys:
     content: |-
       The status of the content cache's registration with Apple, which is one of the following values:
       * '-1:' Failed
-      * ' 0:' Pending
-      * ' 1:' Succeeded
+      * '0:' Pending
+      * '1:' Succeeded
   - key: RestrictedMedia
     type: <boolean>
     presence: optional
@@ -590,8 +590,8 @@ responsekeys:
     content: |-
       The status of tethered caching, which is content caching with a shared internet connection, which is one of the following values:
       * '-1:' Unknown
-      * ' 0:' Disabled
-      * ' 1:' Enabled
+      * '0:' Disabled
+      * '1:' Enabled
   - key: TotalBytesAreSince
     type: <date>
     presence: optional
