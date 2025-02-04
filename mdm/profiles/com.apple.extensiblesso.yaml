@@ -121,8 +121,8 @@ payloadkeys:
   content: If set to 'Cancel', the system cancels authentication requests when the
     screen is locked. If set to 'DoNotHandle', the request continues without SSO instead.
     This doesn't apply to requests where 'userInterfaceEnabled' is 'false', or for
-    background NSURLSession requests. Available in iOS 15 and later, and macOS 12
-    and later.
+    background URLSession requests. Available in iOS 15 and later, and macOS 12 and
+    later.
 - key: DeniedBundleIdentifiers
   supportedOS:
     iOS:

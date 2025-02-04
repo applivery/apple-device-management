@@ -46,7 +46,7 @@ payloadkeys:
       type: <array>
       presence: required
       content: The domains to associate with the app. Each string is in the form of
-        ''service:domain''. Use fully qualified hostnames, such as 'www.example.com'.
+        “'service:domain'”. Use fully qualified hostnames, such as 'www.example.com'.
         See Supporting associated domains for more information.
       subkeys:
       - key: AssociatedDomain

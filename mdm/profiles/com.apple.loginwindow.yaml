@@ -50,7 +50,7 @@ payloadkeys:
   type: <boolean>
   presence: optional
   default: false
-  content: If 'true', the system displays “Other...” when it shows a list of users.
+  content: If 'true', the system displays “Other…” when it shows a list of users.
 - key: AdminHostInfo
   type: <string>
   presence: optional

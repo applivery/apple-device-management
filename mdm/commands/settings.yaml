@@ -625,8 +625,8 @@ payloadkeys:
         introduced: n/a
     type: <dictionary>
     presence: optional
-    content: A dictionary that contains default application bundle identifiers. Currently
-      it supports a default web browser app.
+    content: A dictionary that contains default application bundle identifiers for
+      each default application type that can be set.
     subkeys:
     - key: Item
       type: <string>

@@ -60,7 +60,7 @@ payloadkeys:
   type: <boolean>
   presence: optional
   default: true
-  content: If 'false', restricts the 'Install macOS Updates' option and prevents the
+  content: If 'false', restricts the “Install macOS Updates” option and prevents the
     user from changing the option.
 - key: AutomaticallyInstallAppUpdates
   supportedOS:
@@ -69,7 +69,7 @@ payloadkeys:
   type: <boolean>
   presence: optional
   default: true
-  content: If 'false', deselects the 'Install app updates from the App Store' option
+  content: If 'false', deselects the “Install app updates from the App Store” option
     and prevents the user from changing the option.
 - key: AutomaticCheckEnabled
   supportedOS:
@@ -78,7 +78,7 @@ payloadkeys:
   type: <boolean>
   presence: optional
   default: true
-  content: If 'false', deselects the 'Check for updates' option and prevents the user
+  content: If 'false', deselects the “Check for updates” option and prevents the user
     from changing the option.
 - key: AutomaticDownload
   supportedOS:
@@ -87,8 +87,8 @@ payloadkeys:
   type: <boolean>
   presence: optional
   default: true
-  content: If 'false', deselects the 'Download new updates when available from the
-    App Store' option and prevents the user from changing the option.
+  content: If 'false', deselects the “Download new updates when available from the
+    App Store” option and prevents the user from changing the option.
 - key: CriticalUpdateInstall
   supportedOS:
     macOS:
@@ -97,7 +97,7 @@ payloadkeys:
   presence: optional
   default: true
   content: If 'false', disables the automatic installation of critical updates and
-    prevents the user from changing the 'Install system data files and security updates'
+    prevents the user from changing the “Install system data files and security updates”
     option.
 - key: ConfigDataInstall
   supportedOS:

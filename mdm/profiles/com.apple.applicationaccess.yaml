@@ -1236,6 +1236,40 @@ payloadkeys:
   default: true
   content: If 'false', the system disallows dictation input. Available in iOS 10.3
     and later, and macOS 10.13 and later. Requires a supervised device in iOS.
+- key: allowedExternalIntelligenceWorkspaceIDs
+  title: Allowed External Intelligence Workspace IDs
+  supportedOS:
+    iOS:
+      introduced: '18.3'
+      supervised: true
+      allowmanualinstall: false
+      sharedipad:
+        mode: forbidden
+      userenrollment:
+        mode: forbidden
+    macOS:
+      introduced: '15.3'
+      allowmanualinstall: false
+      userenrollment:
+        mode: forbidden
+    tvOS:
+      introduced: n/a
+    visionOS:
+      introduced: n/a
+    watchOS:
+      introduced: n/a
+  type: <array>
+  presence: optional
+  content: Array of strings, but currently restricted to a single element. If present,
+    Apple Intelligence will only allow the given external integration workspace ID
+    to be used, and will require a sign-in in order to make requests; the user will
+    be required to sign in to integrations that support signing in. Multiple payloads
+    will combine using an intersect operation. This means the allowed set of workspace
+    IDs can become the empty set if conflicting values are specified in multiple payloads.
+  subkeys:
+  - key: allowedWorkspaceID
+    title: Allowed Workspace ID
+    type: <string>
 - key: allowEnablingRestrictions
   title: Allow Configuring Restrictions or ScreenTime
   supportedOS:
@@ -1431,7 +1465,7 @@ payloadkeys:
     macOS:
       introduced: '15.2'
       userenrollment:
-        mode: forbidden
+        mode: allowed
     tvOS:
       introduced: n/a
     visionOS:
@@ -2282,6 +2316,29 @@ payloadkeys:
   default: true
   content: If 'false', the system disables NFC. Requires a supervised device. Available
     in iOS 14.2 and later.
+- key: allowNotesTranscriptionSummary
+  supportedOS:
+    iOS:
+      introduced: '18.3'
+      supervised: true
+      sharedipad:
+        mode: forbidden
+      userenrollment:
+        mode: forbidden
+    macOS:
+      introduced: '15.3'
+      userenrollment:
+        mode: forbidden
+    tvOS:
+      introduced: n/a
+    visionOS:
+      introduced: n/a
+    watchOS:
+      introduced: n/a
+  type: <boolean>
+  presence: optional
+  default: true
+  content: If false, disables transcription summarization in Notes.
 - key: allowNotificationsModification
   title: Allow Modifying Notifications Settings
   supportedOS:
@@ -3199,6 +3256,28 @@ payloadkeys:
   default: true
   content: If 'false', the system hides the FaceTime app. Available in iOS 4 and later.
     Requires a supervised device in iOS 13 and later.
+- key: allowVisualIntelligenceSummary
+  title: Allow Visual Intelligence Summary
+  supportedOS:
+    iOS:
+      introduced: '18.3'
+      supervised: true
+      sharedipad:
+        mode: forbidden
+      userenrollment:
+        mode: forbidden
+    macOS:
+      introduced: n/a
+    tvOS:
+      introduced: n/a
+    visionOS:
+      introduced: n/a
+    watchOS:
+      introduced: n/a
+  type: <boolean>
+  presence: optional
+  default: true
+  content: When false, disables visual intelligence summarization.
 - key: allowVoiceDialing
   title: Allow Voice Dialing While Device is Locked
   supportedOS:
