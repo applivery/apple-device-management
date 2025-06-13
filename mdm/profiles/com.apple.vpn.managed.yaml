@@ -83,30 +83,34 @@ payloadkeys:
   content: The vendor-specific configuration dictionary, which the system reads only
     when 'VPNSubType' has a value. Not available in watchOS.
   subkeys:
-  - key: Realm
-    title: Realm
-    type: <string>
-    presence: optional
-    content: The Kerberos realm name, which needs to be properly capitalized. Valid
-      only for Juniper SSL and Pulse Secure. Not available in watchOS.
-  - key: Role
-    title: Role
-    type: <string>
-    presence: optional
-    content: The role to select when connecting to the server. Valid only for Juniper
-      SSL and Pulse Secure. Not available in watchOS.
-  - key: Group
-    title: Group
-    type: <string>
-    presence: optional
-    content: The group to connect to on the head end. Valid for Cisco AnyConnect and
-      Cisco Legacy AnyConnect. Not available in watchOS.
-  - key: LoginGroupOrDomain
-    title: Login Group or Domain
-    type: <string>
-    presence: optional
-    content: The login group or domain. Valid only for SonicWALL Mobile Connect. Not
-      available in watchOS.
+  - key: ANY
+    type: <any>
+    presence: required
+    content: The custom key/value pairs for the filtering service.
+  # - key: Realm
+  #   title: Realm
+  #   type: <string>
+  #   presence: optional
+  #   content: The Kerberos realm name, which needs to be properly capitalized. Valid
+  #     only for Juniper SSL and Pulse Secure. Not available in watchOS.
+  # - key: Role
+  #   title: Role
+  #   type: <string>
+  #   presence: optional
+  #   content: The role to select when connecting to the server. Valid only for Juniper
+  #     SSL and Pulse Secure. Not available in watchOS.
+  # - key: Group
+  #   title: Group
+  #   type: <string>
+  #   presence: optional
+  #   content: The group to connect to on the head end. Valid for Cisco AnyConnect and
+  #     Cisco Legacy AnyConnect. Not available in watchOS.
+  # - key: LoginGroupOrDomain
+  #   title: Login Group or Domain
+  #   type: <string>
+  #   presence: optional
+  #   content: The login group or domain. Valid only for SonicWALL Mobile Connect. Not
+  #     available in watchOS.
 - key: VPN
   title: VPN
   type: <dictionary>
