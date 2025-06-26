@@ -1,5 +1,5 @@
-title: Certificate (Root)
-description: Use this section to define settings for a root certificate.
+title: Certificate (Tusted CA)
+description: Installs a trusted root certificate or intermediate CA. Use this when you need the device to trust connections to services secured by private CAs.
 payload:
   payloadtype: com.apple.security.root
   supportedOS:
@@ -41,7 +41,7 @@ payload:
       introduced: '3.0'
       multiple: true
       allowmanualinstall: true
-  content: Alias for com.apple.security.pkcs1.
+  content: PEM or DER encoded certificate without private key.
 payloadkeys:
 - key: PayloadCertificateFileName
   title: Payload Certificate Filename
