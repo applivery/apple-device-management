@@ -1,4 +1,4 @@
-title: Certificate (Tusted CA)
+title: Certificate (Trusted CA)
 description: Installs a trusted root certificate or intermediate CA. Use this when you need the device to trust connections to services secured by private CAs.
 payload:
   payloadtype: com.apple.security.root
