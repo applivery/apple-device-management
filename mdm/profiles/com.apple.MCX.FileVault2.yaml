@@ -1,5 +1,6 @@
 title: FDE FileVault
-description: The payload that configures FileVault.
+customTitle: FileVault
+description: ''
 payload:
   payloadtype: com.apple.MCX.FileVault2
   supportedOS:

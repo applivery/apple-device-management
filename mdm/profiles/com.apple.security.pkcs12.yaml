@@ -1,5 +1,5 @@
-title: 'Certificate (PKCS #12)'
-description: 'The payload that configures a PKCS #12-formatted certificate.'
+title: Certificate (Identity)
+description: Installs a personal identity, consisting of a certificate and its associated private key. Used when the device needs to authenticate itself to a service.
 payload:
   payloadtype: com.apple.security.pkcs12
   supportedOS:
