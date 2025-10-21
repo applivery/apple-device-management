@@ -69,10 +69,8 @@ payloadkeys:
       - key: bookmarks-item
         type: <dictionary>
         presence: required
-        # content: A bookmark that specifies a title, and either a URL for the bookmark,
-        #   or a nested folder of bookmarks.
-        content: A bookmark that specifies a title and a URL for the bookmark.
-        # subkeys: &id001
+        content: A bookmark that specifies a title, and either a URL for the bookmark,
+          or a nested folder of bookmarks.
         subkeys: &id001
         - key: Title
           title: Title
@@ -87,19 +85,31 @@ payloadkeys:
             The URL for the bookmark item.
 
             Only one of `URL` or `Folder` must be present.
-        # - key: Folder
-        #   title: Folder
-        #   type: <array>
-        #   presence: optional
-        #   content: |-
-        #     An array of bookmarks for each bookmark in the folder. Folders can include bookmark items and bookmark folders.
+        - key: Folder
+          title: Folder
+          type: <array>
+          presence: optional
+          content: |-
+            An array of bookmarks for each bookmark in the folder. Folders can include bookmark items and bookmark folders.
 
-        #     Only one of `URL` or `Folder` must be present.
-        #   subkeytype: BookmarksItem
-        #   subkeys:
-        #   - key: folder-item
-        #     type: <dictionary>
-        #     presence: required
-        #     content: A bookmark that specifies a title, and either a URL for the bookmark,
-        #       or a nested folder of bookmarks.
-        #     subkeys: *id001
+            Only one of `URL` or `Folder` must be present.
+          subkeytype: BookmarksItem
+          subkeys:
+          - key: folder-item
+            type: <dictionary>
+            presence: required
+            content: A bookmark that specifies a title, and either a URL for the bookmark,
+              or a nested folder of bookmarks.
+            # subkeys: *id001
+            subkeys:
+            - key: Title
+              title: Title
+              type: <string>
+              presence: required
+              content: The title of the bookmark shown in Safari.
+            - key: URL
+              title: URL
+              type: <string>
+              presence: optional
+              content: |-
+                The URL for the bookmark item.
