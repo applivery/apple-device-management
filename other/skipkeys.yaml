@@ -51,20 +51,34 @@ payloadkeys:
   type: <string>
   presence: optional
   content: The key to skip the Action Button configuration pane.
-- key: AdditionalPrivacySettings
-  title: Skip Additional Privacy Settings pane
+- key: AgeAssurance
+  title: Skip Age Assurance pane
   supportedOS:
     iOS:
-      introduced: n/a
+      introduced: '26.2'
     macOS:
-      introduced: '26.0'
+      introduced: n/a
     tvOS:
       introduced: n/a
     visionOS:
       introduced: n/a
   type: <string>
   presence: optional
-  content: The key to skip the Additional Privacy Settings pane.
+  content: The key to skip the Age Assurance pane.
+- key: AgeBasedSafetySettings
+  title: Skip Age Based Safety Settings pane
+  supportedOS:
+    iOS:
+      introduced: '26.1'
+    macOS:
+      introduced: n/a
+    tvOS:
+      introduced: n/a
+    visionOS:
+      introduced: n/a
+  type: <string>
+  presence: optional
+  content: The key to skip the Age Based Safety Settings pane.
 - key: Android
   title: Prevents migration from Android device
   supportedOS:
@@ -346,7 +360,7 @@ payloadkeys:
     iOS:
       introduced: '26.0'
     macOS:
-      introduced: '26.0'
+      introduced: '26.1'
     tvOS:
       introduced: n/a
     visionOS:
@@ -442,6 +456,7 @@ payloadkeys:
   supportedOS:
     iOS:
       introduced: '18.4'
+      always-skippable: false
     macOS:
       introduced: n/a
     tvOS:
@@ -450,7 +465,9 @@ payloadkeys:
       introduced: n/a
   type: <string>
   presence: optional
-  content: The key to skip the Safety and Handling pane.
+  content: The key to skip the Safety and Handling pane. This pane isn't always skippable
+    because it appears before the device retrieves the Cloud Configuration from the
+    server.
 - key: ScreenTime
   title: Skip Screen Time pane
   supportedOS:
@@ -626,7 +643,7 @@ payloadkeys:
     iOS:
       introduced: '14.0'
     macOS:
-      introduced: '26.0'
+      introduced: '26.1'
     tvOS:
       introduced: n/a
     visionOS:
